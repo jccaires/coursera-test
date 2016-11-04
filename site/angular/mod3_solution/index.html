@@ -29,6 +29,8 @@
   </ul>-->
 </div>
     <found-items items="menu.found.menu_items" on-remove="menu.removeItem(index)"></found-items>
+    <div class="error" ng-if="menu.empty">Nothing to search!</div>
+    <div class="error" ng-if="menu.notFound">Nothing found with that keyword!</div>
   </div>
   </div>
 

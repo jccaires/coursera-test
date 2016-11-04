@@ -1,6 +1,10 @@
 h1 {
   margin-bottom: 30px;
 }
+h3{
+
+  clear: both;
+}
 input[type="text"] {
   width: 200px;
   float: left;
@@ -9,6 +13,7 @@ input[type="text"] {
   float: left;
   margin-left: 10px;
 }
+.error{color:red;}
 .loader {
   display: none;
   margin-left: 5px;
