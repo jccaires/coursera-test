@@ -1,8 +1,8 @@
 <h3>List to narrow down</h3>
- 
+
 <ul>
   <li ng-repeat="item in menu.items">
-    (<a href="">{{ item.short_name }}</a>)
+    (<a href="">{{ item.name }}, {{ item.short_name }}, </a>)
     {{ item.description }}
 
     <button ng-click="menu.onRemove({index: $index});">Dont want this one!</button>
