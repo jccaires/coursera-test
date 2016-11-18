@@ -40,6 +40,42 @@ function routeConfig ($stateProvider) {
           return MenuService.getMenuItems($stateParams.category);
         }]
       }
+    })
+    .state('public.signup', {
+      url: '/signup',
+      templateUrl: 'src/public/signup/signup.html',
+      controller: 'RegistrationController',
+      controllerAs: 'reg',
+      //resolve: {
+        //menuCategories: ['MenuService', function (MenuService) {
+          //console.log(reg.user.favdish);S
+          //return MenuService.getCategories();
+        //}]
+      //}
+      //resolve: {
+        //favItems: ['MenuService', function (MenuService) {
+          //console.log(reg.user.favdish);
+          //return MenuService.getFavDish(reg.user.favdish);
+        //}]
+      //}
+    })
+    .state('public.info', {
+      url: '/info',
+      templateUrl: 'src/public/info/info.html',
+      //controller: 'InfoController',
+      //controllerAs: 'info',
+      //resolve: {
+        //menuCategories: ['MenuService', function (MenuService) {
+          //console.log(reg.user.favdish);S
+          //return MenuService.getCategories();
+        //}]
+      //}
+      //resolve: {
+        //favItems: ['MenuService', function (MenuService) {
+          //console.log(reg.user.favdish);
+          //return MenuService.getFavDish(reg.user.favdish);
+        //}]
+      //}
     });
 }
 })();

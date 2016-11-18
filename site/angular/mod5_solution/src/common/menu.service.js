@@ -27,6 +27,25 @@ function MenuService($http, ApiPath) {
     });
   };
 
+  service.getFavDish = function (short_name) {
+
+
+    return $http.get(ApiPath + '/menu_items/'+ short_name + '.json').then(function (response) {
+      return response;
+    });
+  };
+
+  service.savePref = function (userdata) {
+
+      service.userFirstName = userdata.user.firstname;
+      service.userLastName = userdata.user.lastname;
+      service.userEmail = userdata.user.email;
+      service.userPhone = userdata.user.phone;
+      userdata.favDish = userdata.favdish;
+      console.log('guardei os dados');
+      console.log (service.userFirstName);
+  };
+
 }
 
 
