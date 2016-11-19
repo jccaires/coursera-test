@@ -18,12 +18,12 @@ function RegistrationController(MenuService, ApiPath) {
   reg.submit = function () {
     reg.user.error=false;
     reg.user.saveMsg = false;
-    console.log(reg.user.favdish);
+    //console.log(reg.user.favdish);
     var promise = MenuService.getFavDish(reg.user.favdish);
     promise.then(function (response) {
-      console.log(response.data);
+      //console.log(response.data);
       reg.data = response.data;
-      console.log(response.data.description);
+      //console.log(response.data.description);
       reg.completed = true;
 
       MenuService.savePref(reg);
