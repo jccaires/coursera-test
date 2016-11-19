@@ -1,0 +1,107 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">
+    User Sign Up
+  </h2>
+
+  <fieldset>
+      <legend>Registration</legend>
+      <form name='regForm' novalidate>
+
+        <input type="text" name="firstname" placeholder="First Name"
+          ng-model="reg.user.firstname"
+          required
+          minlength="2"
+          ng-maxlength="10" style="color:black">
+          {{ reg.user.firstname }}
+          <span
+            ng-if="(regForm.firstname.$error.minlength || regForm.firstname.$error.required) && regForm.firstname.$touched">
+            First Name must be at least 2 characters long
+          </span>
+          <span ng-if="regForm.firstname.$error.maxlength && regForm.firstname.$touched">
+            First name must not be longer than 10 characters
+          </span>
+          <br>
+
+          <input type="text" name="lastname" placeholder="Last Name"
+            ng-model="reg.user.lastname"
+            required
+            minlength="2"
+            ng-maxlength="10" style="color:black">
+            {{ reg.user.lastname }}
+            <span
+              ng-if="(regForm.lastname.$error.minlength || regForm.lastname.$error.required) && regForm.lastname.$touched">
+              Last Name must be at least 2 characters long
+            </span>
+            <span ng-if="regForm.lastname.$error.maxlength && regForm.lastname.$touched">
+              Last name must not be longer than 10 characters
+            </span>
+            <br>
+
+        <input type="email" name="email" placeholder="Email"
+          ng-model="reg.user.email"
+          required style="color:black">
+          <span ng-if="regForm.email.$invalid && regForm.email.$touched">
+            Must be a valid email address: handle@domain format
+          </span>
+          <br>
+
+        <input type="text" name="phone" placeholder="Phone ###-###-####"
+          ng-model="reg.user.phone"
+          pattern="(\d{3})-(\d{3})-(\d{4})" style="color:black">
+          <span ng-if="regForm.phone.$invalid && regForm.phone.$touched">
+            Phone must be in the format ###-###-####.
+          </span>
+          <br>
+
+        <input type="text" name="favdish" placeholder="Favorite Dish Code"
+            ng-model="reg.user.favdish"
+            required
+            minlength="2"
+            ng-maxlength="3" style="color:black">
+            {{ reg.user.favdish }}
+          <span
+            ng-if="(regForm.favdish.$error.minlength || regForm.favdish.$error.required) && regForm.favdish.$touched">
+            Favorite Dish must be at least 2 characters long
+          </span><span ng-if="reg.user.error"> No such menu number exists</span>
+          <span ng-if="regForm.favdish.$error.maxlength && regForm.favdish.$touched">
+            Favorite Dish must not be longer than 10 characters
+          </span>
+          <br>
+
+        <button
+          ng-disabled="regForm.$invalid"
+          ng-click="reg.submit()">Submit</button>
+
+          <div style="margin-top: 10px;">
+            Information valid? {{ regsForm.$valid }} <span ng-if="reg.user.saveMsg"> Yes!! Your information has been saved</span>
+          </div>
+      </form>
+    </fieldset>
+
+    <div id="info" ng-if="reg.completed">
+      Firstname: {{ reg.user.firstname}} <br>
+      Laststname: {{ reg.user.lastname}} <br>
+      Email: {{ reg.user.email}} <br>
+      Phone: {{ reg.user.phone }}<br>
+      Favorite Dish {{reg.user.favdish}}
+
+      <!--definition of the menu fav user item design-->
+
+      <div class="row">
+        <div class="col-sm-3">
+          <div class="menu-item-photo">
+            <div>{{reg.data.short_name}}</div>
+            <img class="img-responsive" width="250" height="150" ng-src="{{reg.basePath}}/images/{{reg.user.favdish}}.jpg" alt="{{reg.data.name}}">
+          </div>
+          <div class="menu-item-price">{{reg.data.price_small | currency}}<span> {{reg.data.small_portion_name}}</span> {{reg.data.price_large | currency}} <span>{{reg.data.large_portion_name}}</span></div>
+        </div>
+        <div class="menu-item-description col-sm-3">
+          <h3 class="menu-item-title">{{reg.data.name}}</h3>
+          <p class="menu-item-details">{{reg.data.description}}</p>
+        </div>
+     </div>
+
+      <!--******************************************** -->
+  </div>
+
+</div>

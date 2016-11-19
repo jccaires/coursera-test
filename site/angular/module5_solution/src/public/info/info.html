@@ -1,0 +1,34 @@
+<div class="container">
+  <h2 id="menu-categories-title" class="text-center">
+    info
+  </h2>
+
+<span ng-if="info.msgReg"> Not Signed Up Yet  <a ui-sref="public.signup"> Sign up Now!</a> </span>
+
+<div id="info" ng-if="info.completed">
+      Firstname: {{ info.userFirstName}} <br>
+      Laststname: {{ info.userLastName}} <br>
+      Email: {{ info.userEmail}} <br>
+      Phone: {{ info.userPhone }}<br>
+      Favorite Dish {{info.favDish}}
+
+      <!--definition of the menu fav user item design-->
+
+     <div class="row">
+        <div class="col-sm-3">
+          <div class="menu-item-photo">
+            <div>{{info.short_name}}</div>
+            <img class="img-responsive" width="250" height="150" ng-src="{{info.basePath}}/images/{{info.favDish}}.jpg" alt="{{info.name}}">
+          </div>
+          <div class="menu-item-price">{{info.price_small | currency}}<span> {{info.small_portion_name}}</span> {{info.price_large | currency}} <span>{{info.large_portion_name}}</span></div>
+        </div>
+        <div class="menu-item-description col-sm-3">
+          <h3 class="menu-item-title">{{info.name}}</h3>
+          <p class="menu-item-details">{{info.description}}</p>
+        </div>
+     </div>
+
+      <!--******************************************** -->
+  </div>
+
+</div>
